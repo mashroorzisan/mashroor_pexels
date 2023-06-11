@@ -7,25 +7,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PixoStock</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="https://kit.fontawesome.com/70630356e2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 </head>
 
 <body>
-    <header class="search">
+    <div class="lightbox">
+        <div class="wrapper">
+            <header>
+                <div class="photographer">
+                    <i class="uil uil-camera"></i>
+                    <span>Maria Gonzalez</span>
+                </div>
+                <div class="buttons">
+                    <i class="uil uil-import"></i>
+                    <i class="uil uil-times"></i>
+                </div>
+            </header>
+            <div class="preview-img">
+                <div class="img"><img src="./images/img-3.jpg" alt="selected image"></div>
+            </div>
+        </div>
+    </div>
+    <section class="search">
         <img src="./images/search-img.jpg" alt="Header Image">
         <div class="content">
             <h1>Fuel your creativity with PixoStock</h1>
             <p>Your destination for free, high-quality images.
             </p>
             <div class="search-box">
-                <i class="fa-solid fa-magnifying-glass" style="color: #949494;"></i>
+                <i class="uil uil-search-alt" style="color: #949494;"></i>
                 <input type="text" placeholder='search for free photos'>
             </div>
         </div>
-    </header>
-    <main class="gallery">
+    </section>
+    <section class="gallery">
         <ul class="images">
-            <li class="card"><img src="./images/img-1.jpg" alt="gallery-images"> </li>
+            <li class="card">
+                <img src="./images/img-1.jpg" alt="gallery-images">
+                <div class="details">
+                    <div class="photographer">
+                        <i class="uil uil-camera"></i>
+                        <span>Maria Gonzalez</span>
+                    </div>
+                    <button><i class="uil uil-import"></i></button>
+                </div>
+            </li>
             <li class="card"><img src="./images/img-2.jpg" alt="gallery-images"> </li>
             <li class="card"><img src="./images/img-3.jpg" alt="gallery-images"> </li>
             <li class="card"><img src="./images/img-4.jpg" alt="gallery-images"> </li>
@@ -38,7 +64,7 @@
 
         </ul>
         <button class="load-more">Load More</button>
-    </main>
+    </section>
 </body>
 
 </html>
