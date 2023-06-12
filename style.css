@@ -160,6 +160,10 @@ i {
     display: none
 }
 
+.lightbox.show {
+    display: block;
+}
+
 .lightbox .wrapper {
     position: absolute;
     left: 50%;

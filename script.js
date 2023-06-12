@@ -5,6 +5,9 @@ const loadBtn = document.querySelector('.load-more');
 const searchInput = document.querySelector('.search-input');
 let searchTerm = null;
 const imgContainer = document.getElementById('images');
+const lightBox = document.querySelector('.lightbox');
+const closeBtn = document.querySelector('.uil-times');
+const downloadBtn = document.querySelector('.uil-import');
 
 
 const downloadImg = (imgUrl) => {
@@ -17,22 +20,35 @@ const downloadImg = (imgUrl) => {
             a.click();
         }).catch(() => alert('Failed to download image'))
 }
+
+const displayLightBox = (name, photo, original) => {
+    lightBox.querySelector('img').src = photo;
+    lightBox.querySelector('span').innerText = name;
+    lightBox.classList.add('show');
+    downloadBtn.setAttribute('data-img', original)
+    document.body.style.overflow = 'hidden';
+}
+const hideLightBox = () => {
+    lightBox.classList.remove('show');
+    document.body.style.overflow = 'auto';
+
+}
 displayData = (data) => {
     imgContainer.innerHTML = '';
-    console.log(data)
     data.map(img => {
         const { src, alt, photographer } = img;
         const newLi = document.createElement('li');
+        newLi.setAttribute('onclick', `displayLightBox('${photographer}','${src.large2x}','${src.original}')`);
         newLi.innerHTML = `
         <img src=${src.large2x} alt=${alt}>
         <div class="details">
-            <div class="photographer">
-                <i class="uil uil-camera"></i>
-                <span>${photographer}</span>
-            </div>
-            <button onclick = "downloadImg('${src.large2x}')">
-                <i class="uil uil-import"></i>
-            </button>
+        <div class="photographer">
+        <i class="uil uil-camera"></i>
+        <span>${photographer}</span>
+        </div>
+        <button onclick = "downloadImg('${src.original}');event.stopPropagation();">
+        <i class="uil uil-import"></i>
+        </button>
         </div>
         `
         newLi.setAttribute("class", 'card');
@@ -74,5 +90,7 @@ const loadSearchImages = (e) => {
         getImages(`https://api.pexels.com/v1/search?query=${searchTerm}&page=${currentPage}&per_page=${perPage}`);
     }
 }
-loadBtn.addEventListener('click', loadMoreImages)
-searchInput.addEventListener('keyup', loadSearchImages)
+loadBtn.addEventListener('click', loadMoreImages);
+searchInput.addEventListener('keyup', loadSearchImages);
+closeBtn.addEventListener('click', hideLightBox);
+downloadBtn.addEventListener('click', (e) => downloadImg(e.target.dataset.img));
