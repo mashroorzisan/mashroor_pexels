@@ -5,13 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PixoStock</title>
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <!-- css link -->
     <link rel="stylesheet" href="./style.css">
+    <!-- unicon font link -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <!-- script link -->
     <script src="./script.js" defer></script>
+    <title>PixoStock</title>
 </head>
 
 <body>
+    <!-- this is a light box which will remain hidden until its clicked -->
     <div class="lightbox">
         <div class="wrapper">
             <header>
@@ -29,18 +38,23 @@
             </div>
         </div>
     </div>
+    <!-- this is search section -->
     <section class="search">
-        <img src="./images/search-img.jpg" alt="Header Image">
+        <!-- hardcoded images is used in the search section -->
+        <img src="./images/pexels-bri-schneiter-346529.jpg" alt="Header Image">
+        <!-- the content goes here -->
         <div class="content">
             <h1>Fuel your creativity with PixoStock</h1>
             <p>Your destination for free, high-quality images.
             </p>
+            <!-- this is the search box -->
             <div class="search-box">
                 <i class="uil uil-search-alt" style="color: #949494;"></i>
                 <input class='search-input' type="text" placeholder='search for free photos'>
             </div>
         </div>
     </section>
+    <!-- this is t -->
     <section class="gallery">
         <ul id="images">
         </ul>
